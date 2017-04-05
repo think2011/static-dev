@@ -54,6 +54,7 @@ gulp.task('server', () => {
             ignoreInitial: true,
             ignored      : ['*.map', '*.scss']
         },
+        notify: false,
         server      : {
             baseDir  : paths.dist,
             directory: true
@@ -63,9 +64,8 @@ gulp.task('server', () => {
 })
 
 gulp.task('default', () => {
-    $.watch(`${paths.src}/**/*.+(${EXTS})`).pipe(gulp.dest(paths.dist))
-    $.watch(`${staticDir}/**`).pipe(gulp.dest(`${paths.dist}/static`))
-
+    $.watch(`${paths.src}/**/*.+(${EXTS})`, () => gulp.start('copy'))
+    $.watch(`${staticDir}/**`, () => gulp.start('static'))
     $.watch(`${paths.src}/**/*.js`, () => gulp.start('js'))
     $.watch(`${paths.src}/**/*.scss`, () => gulp.start('scss'))
 

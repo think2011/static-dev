@@ -8,3 +8,6 @@
 
 ## 启动
     npm run dev
+
+## 重置
+    npm run clean
