@@ -54,7 +54,7 @@ gulp.task('server', () => {
             ignoreInitial: true,
             ignored      : ['*.map', '*.scss']
         },
-        notify: false,
+        notify      : false,
         server      : {
             baseDir  : paths.dist,
             directory: true
